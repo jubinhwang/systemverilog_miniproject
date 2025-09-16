@@ -1,6 +1,7 @@
 # systemverilog_miniproject
 
 SystemVerilog를 이용한 UART 제어 10000 카운터 설계 및 검증
+
 FPGA-based 10000 Counter with UART Interface: Design and Verification in SystemVerilog
 
 📝 프로젝트 개요 (Overview)
