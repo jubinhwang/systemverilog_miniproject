@@ -1,5 +1,5 @@
 #  UART 제어 10000진 카운터: 설계 및 검증 (SystemVerilog)
-**FPGA-based 10000 Counter with UART Interface: Design and Verification in SystemVerilog**
+FPGA-based 10000 Counter with UART Interface: Design and Verification in SystemVerilog
 
 
 ## 📝 프로젝트 개요 (Overview)
