@@ -1,26 +1,26 @@
 #  UART 제어 10000진 카운터: 설계 및 검증 (SystemVerilog)
 **FPGA-based 10000 Counter with UART Interface: Design and Verification in SystemVerilog**
 
----
 
-### 📝 프로젝트 개요 (Overview)
+## 📝 프로젝트 개요 (Overview)
+
 본 프로젝트는 **하만교육 2기** 과정으로 진행되었습니다. FPGA의 물리적 버튼과 UART 통신 명령어를 통해 **10000진 카운터**를 제어하는 시스템을 설계하고 검증하는 것을 목표로 합니다.
 
 주요 과제는 Verilog HDL로 10000진 카운터를, SystemVerilog로 UART 및 FIFO 로직을 설계하는 것입니다. 이후 SystemVerilog 기반의 테스트벤치를 구축하여 설계의 기능적 정확성을 검증하고 최종 리포트를 생성합니다
 
 * **팀원**: 황주빈, 김태형
 
----
 
-### ✨ 주요 기능 (Key Features)
+## ✨ 주요 기능 (Key Features)
+
 * **듀얼 컨트롤**: FPGA 버튼과 UART 명령어를 모두 사용하여 카운터의 동작(`enable`, `mode`, `clear`)을 제어합니다.
 * **UART 통신 모듈**: 데이터 버퍼링을 위한 FIFO를 포함한 비동기 직렬 통신(UART) `RX` 및 `TX` 모듈을 구현했습니다.
 * **SystemVerilog 검증 환경**: 기능 검증을 자동화하고 결과를 체계적으로 분석하기 위한 테스트벤치를 구축했습니다.
 * **결과 리포팅**: 모든 테스트 시나리오의 통과 여부를 요약한 최종 테스트 리포트를 생성합니다.
 
----
 
-### 🔧 시스템 아키텍처 (System Architecture)
+## 🔧 시스템 아키텍처 (System Architecture)
+
 <img width="1430" alt="System Architecture Block Diagram" src="https://github.com/user-attachments/assets/c9416c48-9919-432a-9413-701cbc53e000" />
 
 * **`UART_TOP`**: PC로부터 UART 명령어를 수신(RX)하고 처리 결과를 송신(TX)하는 최상위 모듈입니다.
@@ -30,9 +30,9 @@
 * **`FND_CNTL`**: 카운터 값을 FND(7-Segment)에 표시하기 위한 제어 로직입니다.
 * **`1KHZ_CLK`**: 버튼 디바운싱(Debouncing)을 위해 생성한 1kHz 클럭입니다.
 
----
 
-### 🧪 검증 환경 및 절차 (Verification Environment & Process)
+## 🧪 검증 환경 및 절차 (Verification Environment & Process)
+
 설계된 UART 모듈의 신뢰성을 보장하기 위해 SystemVerilog로 검증 환경을 구축했습니다. 테스트벤치는 **`RX` -> `RX_FIFO` -> `TX_FIFO` -> `TX`** 순으로 데이터 흐름을 체계적으로 검증합니다.
 
 <img width="1389" alt="Testbench Block Diagram" src="https://github.com/user-attachments/assets/7e0bc235-28db-469e-a681-f31f6d061897" />
@@ -56,9 +56,8 @@
 * **Scoreboard**: 전송된 데이터와 최종 수신된 데이터를 비교하여 전체 트랜잭션의 성공 여부를 최종 판정합니다.
 * **Test Summary Report**: 총 10개의 트랜잭션을 실행하여 **100% 통과율**을 달성했으며, `OVERALL STATUS : ALL PASSED`로 모든 검증이 성공적으로 완료되었음을 확인했습니다.
 
----
 
-### 🚀 시작하기 (Getting Started)
+## 🚀 시작하기 (Getting Started)
 
 이 프로젝트를 실제 **Basys3** 보드에서 구현하고 테스트하기 위한 단계별 가이드입니다.
 
