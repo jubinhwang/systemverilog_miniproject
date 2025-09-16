@@ -98,44 +98,36 @@ Scoreboard: 전송된 데이터와 최종 수신된 데이터를 비교하여 �
 
 Test Summary Report: 총 10개의 트랜잭션을 실행하여 100%의 통과율을 달성했으며, OVERALL STATUS : ALL PASSED로 모든 검증이 성공적으로 완료되었음을 확인했습니다.
 
-🚀 시작하기 (Getting Started)
+## 🚀 시작하기 (Getting Started)
+
 이 프로젝트를 실제 FPGA 보드에서 실행하고 테스트하기 위한 단계별 가이드입니다.
 
-사전 요구사항 (Prerequisites)
-FPGA 개발 환경: Vivado 2020.2 버전
+### 사전 요구사항 (Prerequisites)
 
-FPGA 보드: Digilent Basys3 보드 (본 프로젝트의 제약 조건 파일이 Basys3 보드에 맞춰 작성되었습니다.)
+* **FPGA 개발 환경**: **Vivado 2020.2** 버전
+* **FPGA 보드**: **Digilent Basys3 보드** (본 프로젝트의 제약 조건 파일이 Basys3 보드에 맞춰 작성되었습니다.)
+* **UART 통신 프로그램**: **ComPortMaster** 또는 PuTTY, Tera Term 등 기타 시리얼 터미널 프로그램
 
-UART 통신 프로그램: ComPortMaster 또는 PuTTY, Tera Term 등 기타 시리얼 터미널 프로그램
+### 설치 및 실행 절차 (Step-by-Step Guide)
 
-설치 및 실행 절차 (Step-by-Step Guide)
-프로젝트 파일 다운로드
-이 GitHub 저장소의 모든 파일을 로컬 컴퓨터로 다운로드하거나 Git을 사용하여 복제(clone)합니다.
+1.  **프로젝트 파일 다운로드**
+    * 이 GitHub 저장소의 모든 파일을 로컬 컴퓨터로 다운로드하거나 Git을 사용하여 복제(clone)합니다.
+    ```bash
+    git clone [https://github.com/jubinhwang/systemverilog_miniproject.git](https://github.com/jubinhwang/systemverilog_miniproject.git)
+    cd systemverilog_miniproject/UART_10000COUNTER
+    ```
 
-Bash
+2.  **Vivado 프로젝트 생성 및 파일 추가**
+    * Vivado 2020.2를 실행하여 새 프로젝트를 생성하고, 프로젝트 생성 시 타겟 보드로 **Basys3**를 선택합니다.
+    * **"Add Sources"** 단계가 나오면, 다운로드한 `sources_1` 폴더 내의 모든 Verilog (`.v`) 파일을 **Design Sources**로 추가합니다.
+    * **"Add Constraints"** 단계에서는 `constrs_1` 폴더의 XDC (`.xdc`) 파일을 추가합니다.
+    * **"Add Simulation Sources"** 단계에서는 `sim_1` 폴더의 파일들을 **Simulation Sources**로 추가합니다.
 
-git clone https://github.com/jubinhwang/systemverilog_miniproject.git
-cd systemverilog_miniproject/UART_10000COUNTER
-Vivado 프로젝트 생성 및 파일 추가
+3.  **Bitstream 생성 및 FPGA 프로그래밍**
+    * 프로젝트 설정이 완료되면 Vivado의 Flow Navigator에서 **"Generate Bitstream"**을 클릭하여 합성과 구현을 거쳐 `.bit` 파일을 생성합니다.
+    * 생성이 완료되면 Hardware Manager를 열고 Basys3 보드를 PC에 연결한 후, 생성된 Bitstream 파일로 디바이스를 프로그래밍합니다.
 
-Vivado 2020.2를 실행하여 새 프로젝트를 생성하고, 프로젝트 생성 시 타겟 보드로 Basys3를 선택합니다.
-
-"Add Sources" 단계가 나오면, 다운로드한 sources_1 폴더 내의 모든 Verilog (.v) 파일을 Design Sources로 추가합니다.
-
-"Add Constraints" 단계에서는 constrs_1 폴더의 XDC (.xdc) 파일을 추가합니다.
-
-"Add Simulation Sources" 단계에서는 sim_1 폴더의 파일들을 Simulation Sources로 추가합니다.
-
-Bitstream 생성 및 FPGA 프로그래밍
-
-프로젝트 설정이 완료되면 Vivado의 Flow Navigator에서 **"Generate Bitstream"**을 클릭하여 합성과 구현을 거쳐 .bit 파일을 생성합니다.
-
-생성이 완료되면 Hardware Manager를 열고 Basys3 보드를 PC에 연결한 후, 생성된 Bitstream 파일로 디바이스를 프로그래밍합니다.
-
-UART 통신 및 기능 확인
-
-ComPortMaster를 설치하고 실행합니다.
-
-Basys3 보드가 연결된 COM 포트를 설정하고, 프로젝트의 UART 사양(Baud rate 등)에 맞게 통신 설정을 맞춥니다.
-
-터미널을 통해 제어 명령어를 전송하여 카운터가 의도대로 동작하는지 실시간으로 확인합니다.
+4.  **UART 통신 및 기능 확인**
+    * **ComPortMaster**를 설치하고 실행합니다.
+    * Basys3 보드가 연결된 COM 포트를 설정하고, 프로젝트의 UART 사양(Baud rate 등)에 맞게 통신 설정을 맞춥니다.
+    * 터미널을 통해 제어 명령어를 전송하여 카운터가 의도대로 동작하는지 실시간으로 확인합니다.
