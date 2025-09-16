@@ -54,7 +54,7 @@ COUNTER: 실제 0부터 9999까지 카운팅을 수행하는 핵심 모듈입니
 FND_CNTL: 카운터 값을 FND(7-Segment)에 표시하기 위한 제어 로직입니다.
 
 
-1KHZ_CLK: 시스템의 기준 클럭을 생성합니다.
+1KHZ_CLK: 버튼 디바운싱을 위해 생성한 1kHz clock
 
 🧪 검증 환경 및 절차 (Verification Environment & Process)
 설계된 UART 모듈의 신뢰성을 보장하기 위해 SystemVerilog로 검증 환경을 구축했습니다. 테스트벤치는 
