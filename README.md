@@ -3,11 +3,11 @@ FPGA-based 10000 Counter with UART Interface: Design and Verification in SystemV
 
 ## 📝 프로젝트 개요 (Overview)
 
-본 프로젝트는 **하만교육 2기** 과정의 미니 프로젝트로, **황주빈, 김태형**이 진행했습니다.
+본 프로젝트는 **하만교육 2기** 과정의 미니 프로젝트입니다.
 
 프로젝트의 목표는 FPGA의 물리적 버튼과 UART 통신 명령어, 두 가지 방식을 통해 **10000진 카운터**를 제어하는 시스템을 설계하고 검증하는 것입니다.
 
-주요 과제는 Verilog HDL로 10000진 카운터 및 FND 제어 로직을, SystemVerilog로 UART(FIFO 포함) 모듈을 설계하는 것입니다. 이후 SystemVerilog 기반의 테스트벤치(Testbench)를 구축하여 설계의 기능적 정확성을 검증하고, 최종 리포트를 생성하는 전 과정을 다룹니다.
+주요 과제는 Verilog HDL로 10000진 카운터 및 FND 제어 로직을, SystemVerilog로 UART(FIFO 포함) 모듈을 설계하는 것입니다. 이후 SystemVerilog 기반의 테스트벤치(Testbench)를 구축하여 설계의 기능적 정확성을 검증하고, 최종 리포트를 생성하는 과정을 다룹니다.
 
 * **사용 보드**: Digilent Basys3
   <img width="512" height="321" alt="image" src="https://github.com/user-attachments/assets/e8fe7550-9f02-4e48-a92d-0786d13b76a2" />
