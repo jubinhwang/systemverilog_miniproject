@@ -10,7 +10,8 @@ FPGA-based 10000 Counter with UART Interface: Design and Verification in SystemV
 주요 과제는 Verilog HDL로 10000진 카운터 및 FND 제어 로직을, SystemVerilog로 UART(FIFO 포함) 모듈을 설계하는 것입니다. 이후 SystemVerilog 기반의 테스트벤치(Testbench)를 구축하여 설계의 기능적 정확성을 검증하고, 최종 리포트를 생성하는 전 과정을 다룹니다.
 
 * **사용 보드**: Digilent Basys3
-  
+  <img width="512" height="321" alt="image" src="https://github.com/user-attachments/assets/e8fe7550-9f02-4e48-a92d-0786d13b76a2" />
+
 
 ## ✨ 주요 기능 (Key Features)
 
@@ -21,6 +22,7 @@ FPGA-based 10000 Counter with UART Interface: Design and Verification in SystemV
 
 ## 🔧 시스템 아키텍처 (System Architecture)
 
+<img width="2029" height="627" alt="image" src="https://github.com/user-attachments/assets/5a62f493-c0fa-4ef4-888a-021042b52f25" />
 
 
 * **`UART_TOP`**: PC로부터 UART 명령어를 수신(RX)하고 처리 결과를 송신(TX)하는 최상위 모듈입니다.
@@ -33,10 +35,10 @@ FPGA-based 10000 Counter with UART Interface: Design and Verification in SystemV
 ## 🧪 검증 환경 및 절차 (Verification Environment & Process)
 
 설계된 UART 모듈의 신뢰성을 보장하기 위해 SystemVerilog로 검증 환경을 구축했습니다.
-
-
+<img width="841" height="733" alt="image" src="https://github.com/user-attachments/assets/1e90ab59-37cf-4c00-a211-7ad38bf4e21d" />
 
 #### 테스트벤치 구성 요소 (Testbench Components)
+<img width="1398" height="418" alt="image" src="https://github.com/user-attachments/assets/095ef2b6-c31a-4353-b179-3e3b15e061d8" />
 
 * **`GEN (Generator)`**: 검증을 위한 랜덤 트랜잭션(데이터)을 생성합니다.
 * **`DRV (Driver)`**: `gen2drv` 메일박스를 통해 `GEN`으로부터 트랜잭션을 받아, DUT의 `RX` 핀으로 직렬 데이터를 인가합니다. 동시에, 원본 데이터를 `DRV2MON` 메일박스를 통해 `MON`으로 전달합니다.
@@ -69,6 +71,7 @@ FPGA-based 10000 Counter with UART Interface: Design and Verification in SystemV
 ## 📈 최종 시뮬레이션 결과 (Final Simulation)
 
 `Counter_10000` 모듈의 시뮬레이션 파형입니다. 버튼 입력 (`btn_D`, `btn_R`, `btn_L`) 및 UART 입력 (`rx` 신호)에 따라 카운터(`w_counter`)가 `Start`, `Mode`, `Reset` 등 설계된 대로 정상 동작하는 것을 확인했습니다.
+<img width="1385" height="783" alt="image" src="https://github.com/user-attachments/assets/a00326f2-dc4e-4b93-b3e7-b545a99f9975" />
 
 
 
